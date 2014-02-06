@@ -149,13 +149,13 @@ public class Score {
 		for(int i = 0;i<4;i++){
 			for(int g = 1; g<5;g++){
 				if(!myHand[i].substring(0,1).equals(myHand[g].substring(0,1))){
-					card1=myHand[i].substring(0,0);
-					card2=myHand[g].substring(0,0);
+					card1=myHand[i].substring(0,1);
+					card2=myHand[g].substring(0,1);
 				}
 			}
 		}
 		for(int k = 0;k<4;k++){
-			if(!myHand[k].substring(0,1).equals(card1) || !myHand[k].substring(0,1).equals(card2)){
+			if(!myHand[k].substring(0,1).equals(card1) && !myHand[k].substring(0,1).equals(card2)){
 				return false;
 			}
 		}
