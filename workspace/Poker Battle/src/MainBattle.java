@@ -3,6 +3,7 @@ public class MainBattle {
 
 	
 	public static void main(String[] args) {
+		//test
 		Deck myDeck = new Deck();
 		Player player1 = new Player();
 		Player player2 = new Player();
