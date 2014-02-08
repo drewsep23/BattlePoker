@@ -12,17 +12,18 @@ public class MainBattle {
 		player1.hand[3] = myDeck.drawCard();
 		player1.hand[4] = myDeck.drawCard();
 		
-		player2.hand[0] = "5c";
-		player2.hand[1] = "6d";
-		player2.hand[2] = "6d";
-		player2.hand[3] = "5c";
-		player2.hand[4] = "5s";
-		
+		player2.hand[0] = "1c";
+		player2.hand[1] = "Jc";
+		player2.hand[2] = "Qc";
+		player2.hand[3] = "Kc";
+		player2.hand[4] = "Ac";
 		for(int i = 0;i<5;i++){
 		System.out.print("["+player2.hand[i]+"] ");
 		}
 		
-		System.out.println(Score.getScore(player2.hand));
+		
+		System.out.print(Score.getScore(player2.hand));
+		
 	}
 
 }

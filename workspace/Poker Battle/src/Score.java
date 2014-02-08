@@ -162,32 +162,43 @@ public class Score {
 		return true;
 	}
 	
-	public static String getScore(String [] aHand){
+	public static int getScore(String [] aHand){
 		if(isFlush(aHand)&&isStraight(aHand)){
-			return "Straight Flush!";
+			String [] subHand = new String [5];
+			for(int i = 0; i<=4;i++){
+				subHand[i] = aHand[i].substring(0,1);
+			}
+			List<String> handList = new ArrayList<String>(Arrays.asList(subHand));
+			if(handList.contains("K")&&handList.contains("A")){
+				return 250;
+			}
+		}
+		
+		if(isFlush(aHand)&&isStraight(aHand)){
+			return 50;
 		}
 		if(isFourOfKind(aHand)){
-			return "Four Of A Kind!";
+			return 25;
 		}
 		if(isFullHouse(aHand)){
-			return "Full House!";
+			return 9;
 		}
 		if(isFlush(aHand)){
-			return "Flush!";
+			return 6;
 		}
 		if(isStraight(aHand)){
-			return "Straight!";
+			return 4;
 		}
 		if(isThreeOfKind(aHand)){
-			return "Three Of Kind!";
+			return 3;
 		}
 		if(isTwoPair(aHand)){
-			return "Two Pairs!";
+			return 2;
 		}
 		if(isPair(aHand)){
-			return "Pair!";
+			return 1;
 		}
-		return "Sorry Nothing";
+		return 0;
 		
 	}
 
