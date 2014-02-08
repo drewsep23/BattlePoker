@@ -75,10 +75,10 @@ public class Score {
 	//Two pair will return true if FullHouse is present
 	private static boolean isTwoPair(String [] myHand){
 		int next = 0;
-		for(int i = 0;i<3;i++){
+		for(int i = 0;i<=3;i++){
 			next++;
-			for(int j = next;j<4;j++){
-				if(myHand[i].substring(0,1)==myHand[j].substring(0,1)){
+			for(int j = next;j<=4;j++){
+				if(myHand[i].substring(0,1).equals(myHand[j].substring(0,1))){
 					List<String> aHand = new ArrayList<String>(Arrays.asList(myHand));
 					aHand.remove(i);
 					aHand.remove(j-1);
