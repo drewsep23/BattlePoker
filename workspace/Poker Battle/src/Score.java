@@ -5,7 +5,7 @@ import java.util.List;
 public class Score {
 	
 	private static boolean isFlush(String [] myHand){
-		for(int i=1;i<4;i++){
+		for(int i=1;i<=4;i++){
 		if(myHand[0].charAt(1)!=(myHand[i].charAt(1))){
 			return false;
 		}
@@ -61,9 +61,9 @@ public class Score {
 	
 	private static boolean isPair(String [] myHand){
 		int next = 0;
-		for(int i = 0;i<3;i++){
+		for(int i = 0;i<4;i++){
 			next++;
-			for(int j = next;j<4;j++){
+			for(int j = next;j<5;j++){
 				if(myHand[i].substring(0,1).equals(myHand[j].substring(0,1))){
 					return true;
 				}
@@ -163,6 +163,7 @@ public class Score {
 	}
 	
 	public static int getScore(String [] aHand){
+		
 		if(isFlush(aHand)&&isStraight(aHand)){
 			String [] subHand = new String [5];
 			for(int i = 0; i<=4;i++){
