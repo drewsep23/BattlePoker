@@ -72,6 +72,21 @@ public class Score {
 		return false;
 	}
 	
+	private static boolean isHighPair(String [] myHand){
+		int next = 0;
+		for(int i = 0;i<4;i++){
+			next++;
+			for(int j = next;j<5;j++){
+				if(myHand[i].substring(0,1).equals(myHand[j].substring(0,1))){
+					if(myHand[i].substring(0,1).equals("A")||myHand[i].substring(0,1).equals("K")||myHand[i].substring(0,1).equals("Q")||myHand[i].substring(0,1).equals("J")){
+					return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+	
 	//Two pair will return true if FullHouse is present
 	private static boolean isTwoPair(String [] myHand){
 		int next = 0;
@@ -171,33 +186,36 @@ public class Score {
 			}
 			List<String> handList = new ArrayList<String>(Arrays.asList(subHand));
 			if(handList.contains("K")&&handList.contains("A")){
-				return 250;
+				return 2500;
 			}
 		}
 		
 		if(isFlush(aHand)&&isStraight(aHand)){
-			return 50;
+			return 500;
 		}
 		if(isFourOfKind(aHand)){
-			return 25;
+			return 250;
 		}
 		if(isFullHouse(aHand)){
-			return 9;
+			return 90;
 		}
 		if(isFlush(aHand)){
-			return 6;
+			return 60;
 		}
 		if(isStraight(aHand)){
-			return 4;
+			return 40;
 		}
 		if(isThreeOfKind(aHand)){
-			return 3;
+			return 30;
 		}
 		if(isTwoPair(aHand)){
-			return 2;
+			return 20;
+		}
+		if(isHighPair(aHand)){
+			return 15;
 		}
 		if(isPair(aHand)){
-			return 1;
+			return 10;
 		}
 		return 0;
 		

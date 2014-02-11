@@ -44,7 +44,7 @@ public class MainBattle {
 		for(int i = 0;i<5;i++){
 		System.out.print("["+player1.hand[i]+"] ");
 		}
-		aScore = Score.getScore(player1.hand)*10;
+		aScore = Score.getScore(player1.hand);
 		System.out.println("Your Score: "+aScore);
 		player1.health += aScore;
 		System.out.println("Your health: "+player1.health+"\n"+"******************************************"+"\n");
