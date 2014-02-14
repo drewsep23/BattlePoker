@@ -6,7 +6,7 @@ import java.util.List;
 
 public class AI {
 	
-	public String fourSuit(String [] nHand){
+	public static String fourSuit(String [] nHand){
 		int dnum=0,cnum=0,snum=0,hnum=0;
 		for(int i = 0;i<=4;i++){
 			if(nHand[i].substring(1).equals("d")){
@@ -37,7 +37,7 @@ public class AI {
 		return "no";
 	}
 	
-	public String [] makeDecision(String [] comHand){
+	public static String [] makeDecision(String [] comHand){
 		String [] aHand = new String [5];
 		int aScore;
 		aScore = Score.getScore(comHand);
@@ -163,23 +163,31 @@ public class AI {
 		//Check for 4 in a row to draw a card for a straight
 		int [] straightHand = new int [5];
 		for(int i = 0;i<=4;i++){
+			boolean used = false;
 			
-			straightHand [i] = Integer.parseInt(comHand[i].substring(0,1));
-			
-			if(comHand[i].substring(0,1)=="J"){
+			if(comHand[i].substring(0,1).equals("J")){
 				straightHand [i] = 11;
+				used = true;
 			}
-			if(comHand[i].substring(0,1)=="Q"){
+			if(comHand[i].substring(0,1).equals("Q")){
 				straightHand [i] = 12;
+				used = true;
 			}
-			if(comHand[i].substring(0,1)=="K"){
+			if(comHand[i].substring(0,1).equals("K")){
 				straightHand [i] = 13;
+				used = true;
 			}
-			if(comHand[i].substring(0,1)=="A"){
+			if(comHand[i].substring(0,1).equals("A")){
 				straightHand [i] = 14;
+				used = true;
 			}
-			if(comHand[i].substring(0,1)=="1"){
+			if(comHand[i].substring(0,1).equals("1")){
 				straightHand [i] = 10;
+				used = true;
+			}
+			
+			if(!used){
+			straightHand [i] = Integer.parseInt(comHand[i].substring(0,1));
 			}
 		}
 		List<Integer> listHand = new ArrayList<Integer>();
