@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -18,7 +19,6 @@ import com.example.battlepoker_android.R;
 public class Map extends Activity implements OnClickListener {
 
 	List<Level> levelList = new ArrayList<Level>();
-	//List<ImageButton> imageButtonList = new ArrayList<ImageButton>();
 
 	RelativeLayout layout;
 	Player player;
@@ -175,6 +175,8 @@ public class Map extends Activity implements OnClickListener {
 				//here i'll do the checking.  if it's "rip", call "check bad guys' stats".  if it's "player" call "player" stats.  if it's "bad guy" call "battle."
 				player.setXPosition(levelList.get(i).getXPosition());
 				player.setYPosition(levelList.get(i).getYPosition());
+				Intent newGameIntent = new Intent(Map.this, Battle.class);
+				Map.this.startActivity(newGameIntent);
 			}
 			updateButton(levelList.get(i)); //just using this loop for multiple purposes.
 			updateButtonImage(levelList.get(i));

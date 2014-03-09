@@ -1,9 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/battleRelativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="bottom"
     android:orientation="vertical" >
 
-    <com.battlepoker_android.src.CustomImageButton />
+    <LinearLayout
+        android:id="@+id/card1LinearLayout"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@color/Red"
+        android:onClick="onClick"
+        android:orientation="vertical" >
+    </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/card2LinearLayout"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/card1LinearLayout"
+        android:layout_toRightOf="@+id/card1LinearLayout"
+        android:background="@color/Blue"
+        android:onClick="onClick"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/card3LinearLayout"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/card2LinearLayout"
+        android:layout_toRightOf="@+id/card2LinearLayout"
+        android:background="@color/Green"
+        android:onClick="onClick"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/card4LinearLayout"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/card3LinearLayout"
+        android:layout_toRightOf="@+id/card3LinearLayout"
+        android:background="@color/Red"
+        android:onClick="onClick"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/card5LinearLayout"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/card4LinearLayout"
+        android:layout_toRightOf="@+id/card4LinearLayout"
+        android:background="@color/Blue"
+        android:onClick="onClick"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</RelativeLayout>
