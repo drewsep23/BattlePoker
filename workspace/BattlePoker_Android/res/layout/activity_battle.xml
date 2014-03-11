@@ -6,59 +6,66 @@
     android:layout_gravity="bottom"
     android:orientation="vertical" >
 
-    <LinearLayout
-        android:id="@+id/card1LinearLayout"
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button1"
+        android:onClick="onClick"
+        android:text="Battle Failed" />
+
+    <com.battlepoker_android.objects.Card
+        android:id="@+id/card1"
         android:layout_width="75dp"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:background="@color/Red"
         android:onClick="onClick"
-        android:orientation="vertical" >
-    </LinearLayout>
+        android:src="@android:drawable/btn_star" />
 
-    <LinearLayout
-        android:id="@+id/card2LinearLayout"
+    <com.battlepoker_android.objects.Card
+        android:id="@+id/card2"
         android:layout_width="75dp"
         android:layout_height="100dp"
-        android:layout_alignTop="@+id/card1LinearLayout"
-        android:layout_toRightOf="@+id/card1LinearLayout"
-        android:background="@color/Blue"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/card1"
         android:onClick="onClick"
-        android:orientation="vertical" >
-    </LinearLayout>
+        android:src="@android:drawable/btn_star" />
 
-    <LinearLayout
-        android:id="@+id/card3LinearLayout"
+    <com.battlepoker_android.objects.Card
+        android:id="@+id/card3"
         android:layout_width="75dp"
         android:layout_height="100dp"
-        android:layout_alignTop="@+id/card2LinearLayout"
-        android:layout_toRightOf="@+id/card2LinearLayout"
-        android:background="@color/Green"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/card2"
         android:onClick="onClick"
-        android:orientation="vertical" >
-    </LinearLayout>
+        android:src="@android:drawable/btn_star" />
 
-    <LinearLayout
-        android:id="@+id/card4LinearLayout"
+    <com.battlepoker_android.objects.Card
+        android:id="@+id/card4"
         android:layout_width="75dp"
         android:layout_height="100dp"
-        android:layout_alignTop="@+id/card3LinearLayout"
-        android:layout_toRightOf="@+id/card3LinearLayout"
-        android:background="@color/Red"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/card3"
         android:onClick="onClick"
-        android:orientation="vertical" >
-    </LinearLayout>
+        android:src="@android:drawable/btn_star" />
 
-    <LinearLayout
-        android:id="@+id/card5LinearLayout"
+    <com.battlepoker_android.objects.Card
+        android:id="@+id/card5"
         android:layout_width="75dp"
         android:layout_height="100dp"
-        android:layout_alignTop="@+id/card4LinearLayout"
-        android:layout_toRightOf="@+id/card4LinearLayout"
-        android:background="@color/Blue"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/card4"
         android:onClick="onClick"
-        android:orientation="vertical" >
-    </LinearLayout>
+        android:src="@android:drawable/btn_star" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/card5"
+        android:layout_centerVertical="true"
+        android:onClick="onClick"
+        android:text="Battle Successful" />
 
 </RelativeLayout>
