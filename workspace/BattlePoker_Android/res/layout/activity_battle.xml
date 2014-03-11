@@ -14,8 +14,8 @@
         android:onClick="onClick"
         android:text="Battle Failed" />
 
-    <com.battlepoker_android.objects.Card
-        android:id="@+id/card1"
+    <ImageButton
+        android:id="@+id/card1ImageButton"
         android:layout_width="75dp"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
@@ -23,39 +23,39 @@
         android:onClick="onClick"
         android:src="@android:drawable/btn_star" />
 
-    <com.battlepoker_android.objects.Card
-        android:id="@+id/card2"
+    <ImageButton
+        android:id="@+id/card2ImageButton"
         android:layout_width="75dp"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/card1"
+        android:layout_toRightOf="@+id/card1ImageButton"
         android:onClick="onClick"
         android:src="@android:drawable/btn_star" />
 
-    <com.battlepoker_android.objects.Card
-        android:id="@+id/card3"
+    <ImageButton
+        android:id="@+id/card3ImageButton"
         android:layout_width="75dp"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/card2"
+        android:layout_toRightOf="@+id/card2ImageButton"
         android:onClick="onClick"
         android:src="@android:drawable/btn_star" />
 
-    <com.battlepoker_android.objects.Card
-        android:id="@+id/card4"
+    <ImageButton
+        android:id="@+id/card4ImageButton"
         android:layout_width="75dp"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/card3"
+        android:layout_toRightOf="@+id/card3ImageButton"
         android:onClick="onClick"
         android:src="@android:drawable/btn_star" />
 
-    <com.battlepoker_android.objects.Card
-        android:id="@+id/card5"
+    <ImageButton
+        android:id="@+id/card5ImageButton"
         android:layout_width="75dp"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/card4"
+        android:layout_toRightOf="@+id/card4ImageButton"
         android:onClick="onClick"
         android:src="@android:drawable/btn_star" />
 
@@ -63,7 +63,7 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/card5"
+        android:layout_alignRight="@+id/card5ImageButton"
         android:layout_centerVertical="true"
         android:onClick="onClick"
         android:text="Battle Successful" />
