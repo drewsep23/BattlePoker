@@ -41,19 +41,21 @@ public final class R {
         public static final int bad_guy_locked_1=0x7f020003;
         public static final int bad_guy_unlocked=0x7f020004;
         public static final int bad_guy_unlocked_1=0x7f020005;
-        public static final int ic_launcher=0x7f020006;
-        public static final int player_1=0x7f020007;
+        public static final int bowser=0x7f020006;
+        public static final int ic_launcher=0x7f020007;
+        public static final int mario=0x7f020008;
+        public static final int player_1=0x7f020009;
     }
     public static final class id {
         public static final int action_settings=0x7f0a000c;
         public static final int battleRelativeLayout=0x7f0a0000;
-        public static final int button1=0x7f0a0002;
-        public static final int button2=0x7f0a0001;
-        public static final int card1ImageButton=0x7f0a0003;
-        public static final int card2ImageButton=0x7f0a0004;
-        public static final int card3ImageButton=0x7f0a0005;
-        public static final int card4ImageButton=0x7f0a0006;
-        public static final int card5ImageButton=0x7f0a0007;
+        public static final int battle_bowser=0x7f0a0006;
+        public static final int battle_mario_image=0x7f0a0007;
+        public static final int card1ImageButton=0x7f0a0001;
+        public static final int card2ImageButton=0x7f0a0002;
+        public static final int card3ImageButton=0x7f0a0003;
+        public static final int card4ImageButton=0x7f0a0004;
+        public static final int card5ImageButton=0x7f0a0005;
         public static final int loadGameButton=0x7f0a0009;
         public static final int mapRelativeLayout=0x7f0a000b;
         public static final int newGameButton=0x7f0a0008;

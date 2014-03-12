@@ -6,14 +6,6 @@
     android:layout_gravity="bottom"
     android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button1"
-        android:onClick="onClick"
-        android:text="Battle Failed" />
-
     <ImageButton
         android:id="@+id/card1ImageButton"
         android:layout_width="75dp"
@@ -59,13 +51,22 @@
         android:onClick="onClick"
         android:src="@android:drawable/btn_star" />
 
-    <Button
-        android:id="@+id/button1"
+    <ImageView
+        android:id="@+id/battle_bowser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/card5ImageButton"
-        android:layout_centerVertical="true"
-        android:onClick="onClick"
-        android:text="Battle Successful" />
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/battle_mario_image"
+        android:layout_marginRight="51dp"
+        android:src="@drawable/bowser" />
+
+    <ImageView
+        android:id="@+id/battle_mario_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/card1ImageButton"
+        android:layout_marginBottom="31dp"
+        android:layout_toLeftOf="@+id/card2ImageButton"
+        android:src="@drawable/mario" />
 
 </RelativeLayout>

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageButton;
 
 import com.battlepoker_android.objects.Card;
@@ -32,6 +33,7 @@ public class BattleActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);;
 		setContentView(R.layout.activity_battle);
 		enemy = (Enemy) getIntent().getSerializableExtra("com.battlepoker_android.objects.Enemy");
 		card1ImageButton = (ImageButton) findViewById(R.id.card1ImageButton);
@@ -100,15 +102,15 @@ public class BattleActivity extends Activity {
 			}
 			break;
 		//for testing only----------
-		case R.id.button1:			
-			//MapActivity.battleSuccessful = true;
-			this.finish();
-			break;
-
-		case R.id.button2:
-			//MapActivity.battleSuccessful = false;
-			this.finish();
-			break;
+//		case R.id.button1:			
+//			//MapActivity.battleSuccessful = true;
+//			this.finish();
+//			break;
+//
+//		case R.id.button2:
+//			//MapActivity.battleSuccessful = false;
+//			this.finish();
+//			break;
 		//--------------------------
 
 		default:

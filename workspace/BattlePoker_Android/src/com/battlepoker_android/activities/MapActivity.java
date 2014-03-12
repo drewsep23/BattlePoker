@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.view.Window;
 import android.widget.RelativeLayout;
 
 import com.battlepoker_android.objects.Level;
@@ -35,6 +36,7 @@ public class MapActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_map);
 
 		layout = (RelativeLayout) findViewById(R.id.mapRelativeLayout);
@@ -45,12 +47,12 @@ public class MapActivity extends Activity implements OnClickListener {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
+		// Inflate the menu; this adds items to the action bar if it is present.		
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
-	//we can put this in a utility class later, if we use it alot.
+	//we can put this in a utility class later if we use it alot.
 	private void setButtonSpacing() {
 		display = getWindowManager().getDefaultDisplay();
 		size = new Point();
@@ -77,7 +79,7 @@ public class MapActivity extends Activity implements OnClickListener {
 		for (int i = 0; i < name.length(); i++) {
 			idCounter++;
 
-			Level level = new Level(getApplicationContext());
+			Level level = new Level(getApplicationContext());			
 			level.setImageResource(R.drawable.bad_guy_locked_1);
 
 			level.getEnemy().setName(name.getString(i));
@@ -92,6 +94,8 @@ public class MapActivity extends Activity implements OnClickListener {
 
 			//positions the buttons and adds them to the layout.
 			RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+//			layoutParams.width = 200;
+//			layoutParams.height = 200;
 			layoutParams.leftMargin = (level.getXPosition() * buttonSpacing);
 			layoutParams.topMargin = (level.getYPosition() * buttonSpacing);
 			layout.addView(level, layoutParams);
