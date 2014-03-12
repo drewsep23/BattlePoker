@@ -17,6 +17,8 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.widget.RelativeLayout;
 
+import com.battlepoker_android.database.DatabaseHelper;
+import com.battlepoker_android.database.Game;
 import com.battlepoker_android.objects.Level;
 import com.battlepoker_android.objects.Player;
 import com.example.battlepoker_android.R;
@@ -32,6 +34,8 @@ public class MapActivity extends Activity implements OnClickListener {
 	private int width;
 	private int height;
 	private Player player;
+	private Game game;
+	private DatabaseHelper db;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +44,9 @@ public class MapActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_map);
 
 		layout = (RelativeLayout) findViewById(R.id.mapRelativeLayout);
+		game = new Game();
 		player = new Player(100, 100);
+		db = new DatabaseHelper(getApplicationContext());
 		setButtonSpacing();
 		initializeLevels();
 	}
@@ -79,7 +85,7 @@ public class MapActivity extends Activity implements OnClickListener {
 		for (int i = 0; i < name.length(); i++) {
 			idCounter++;
 
-			Level level = new Level(getApplicationContext());			
+			Level level = new Level(getApplicationContext());
 			level.setImageResource(R.drawable.bad_guy_locked_1);
 
 			level.getEnemy().setName(name.getString(i));
@@ -94,8 +100,8 @@ public class MapActivity extends Activity implements OnClickListener {
 
 			//positions the buttons and adds them to the layout.
 			RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-//			layoutParams.width = 200;
-//			layoutParams.height = 200;
+			//			layoutParams.width = 200;
+			//			layoutParams.height = 200;
 			layoutParams.leftMargin = (level.getXPosition() * buttonSpacing);
 			layoutParams.topMargin = (level.getYPosition() * buttonSpacing);
 			layout.addView(level, layoutParams);
@@ -193,12 +199,18 @@ public class MapActivity extends Activity implements OnClickListener {
 				//we need to pass the level to the battle activity so that we can get the player and enemy objects.
 				player.setXPosition(levelList.get(i).getXPosition());
 				player.setYPosition(levelList.get(i).getYPosition());
+				//save game information before going to battle
+				game.setPlayer(player);
+				game.setLevel(levelList.get(i));
+				game.setEnemy(levelList.get(i).getEnemy());	//not sure what to do with this.....		
+				db.saveGame(game);
+				//pass information to the battle
 				Intent newIntent = new Intent(getBaseContext(), BattleActivity.class);
 				newIntent.putExtra("com.battlepoker_android.objects.Enemy", levelList.get(i).getEnemy());
 				MapActivity.this.startActivity(newIntent);
 			}
-				updateButton(levelList.get(i)); //just using this loop for multiple purposes.
-				updateButtonImage(levelList.get(i));
+			updateButton(levelList.get(i)); //just using this loop for multiple purposes.
+			updateButtonImage(levelList.get(i));
 		}
 
 	}

@@ -49,8 +49,8 @@ public final class R {
     public static final class id {
         public static final int action_settings=0x7f0a000c;
         public static final int battleRelativeLayout=0x7f0a0000;
-        public static final int battle_bowser=0x7f0a0006;
-        public static final int battle_mario_image=0x7f0a0007;
+        public static final int battle_bowser=0x7f0a0007;
+        public static final int battle_mario_image=0x7f0a0006;
         public static final int card1ImageButton=0x7f0a0001;
         public static final int card2ImageButton=0x7f0a0002;
         public static final int card3ImageButton=0x7f0a0003;
