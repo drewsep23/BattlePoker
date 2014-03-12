@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/battleRelativeLayout"
@@ -68,4 +69,76 @@
         android:onClick="onClick"
         android:text="Battle Successful" />
 
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/battleRelativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom"
+    android:orientation="vertical" >
+
+    <ImageButton
+        android:id="@+id/card1ImageButton"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="onClick"
+        android:src="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/card2ImageButton"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/card1ImageButton"
+        android:onClick="onClick"
+        android:src="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/card3ImageButton"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/card2ImageButton"
+        android:onClick="onClick"
+        android:src="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/card4ImageButton"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/card3ImageButton"
+        android:onClick="onClick"
+        android:src="@android:drawable/btn_star" />
+
+    <ImageButton
+        android:id="@+id/card5ImageButton"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/card4ImageButton"
+        android:onClick="onClick"
+        android:src="@android:drawable/btn_star" />
+
+    <ImageView
+        android:id="@+id/battle_mario_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/card1ImageButton"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/mario" />
+
+    <ImageView
+        android:id="@+id/battle_bowser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/card5ImageButton"
+        android:layout_marginLeft="18dp"
+        android:layout_toRightOf="@+id/card5ImageButton"
+        android:src="@drawable/bowser" />
+
+>>>>>>> 66059e8ca988c8875600a52959881e43f2f9d8e9
 </RelativeLayout>
