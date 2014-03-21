@@ -6,25 +6,20 @@ import java.util.List;
 
 public class Score {
 
-	private static boolean isFlush(String[] myHand) {
+	private static boolean isFlush(Card[] myHand) {
 		for (int i = 1; i <= 4; i++) {
-			if (myHand[0].charAt(1) != (myHand[i].charAt(1))) {
+			if (myHand[0].getSuit() != (myHand[i].getSuit())) {
 				return false;
 			}
 		}
 		return true;
 	}
 
-	private static boolean isStraight(String[] myHand) {
+	private static boolean isStraight(Card[] myHand) {
 		String[] swapHand = new String[5];
-		swapHand[0] = myHand[0];
-		swapHand[1] = myHand[1];
-		swapHand[2] = myHand[2];
-		swapHand[3] = myHand[3];
-		swapHand[4] = myHand[4];
 
 		for (int i = 0; i < 5; i++) {
-			swapHand[i] = swapHand[i].substring(0, 1);
+			swapHand[i] = myHand[i].getNumber();
 		}
 
 		List<String> aHand = new ArrayList<String>(Arrays.asList(swapHand));
@@ -61,12 +56,12 @@ public class Score {
 		return false;
 	}
 
-	private static boolean isPair(String[] myHand) {
+	private static boolean isPair(Card[] myHand) {
 		int next = 0;
 		for (int i = 0; i < 4; i++) {
 			next++;
 			for (int j = next; j < 5; j++) {
-				if (myHand[i].substring(0, 1).equals(myHand[j].substring(0, 1))) {
+				if (myHand[i].getNumber().equals(myHand[j].getNumber())) {
 					return true;
 				}
 			}
@@ -74,13 +69,13 @@ public class Score {
 		return false;
 	}
 
-	private static boolean isHighPair(String[] myHand) {
+	private static boolean isHighPair(Card[] myHand) {
 		int next = 0;
 		for (int i = 0; i < 4; i++) {
 			next++;
 			for (int j = next; j < 5; j++) {
-				if (myHand[i].substring(0, 1).equals(myHand[j].substring(0, 1))) {
-					if (myHand[i].substring(0, 1).equals("A") || myHand[i].substring(0, 1).equals("K") || myHand[i].substring(0, 1).equals("Q") || myHand[i].substring(0, 1).equals("J")) {
+				if (myHand[i].getNumber().equals(myHand[j].getNumber())) {
+					if (myHand[i].getNumber().equals("A") || myHand[i].getNumber().equals("K") || myHand[i].getNumber().equals("Q") || myHand[i].getNumber().equals("J")) {
 						return true;
 					}
 				}
@@ -90,17 +85,17 @@ public class Score {
 	}
 
 	//Two pair will return true if FullHouse is present
-	private static boolean isTwoPair(String[] myHand) {
+	private static boolean isTwoPair(Card[] myHand) {
 		int next = 0;
 		for (int i = 0; i <= 3; i++) {
 			next++;
 			for (int j = next; j <= 4; j++) {
-				if (myHand[i].substring(0, 1).equals(myHand[j].substring(0, 1))) {
-					List<String> aHand = new ArrayList<String>(Arrays.asList(myHand));
+				if (myHand[i].getNumber().equals(myHand[j].getNumber())) {
+					List<Card> aHand = new ArrayList<Card>(Arrays.asList(myHand));
 					aHand.remove(i);
 					aHand.remove(j - 1);
-					if (aHand.get(0).substring(0, 1).equals(aHand.get(1).substring(0, 1)) || aHand.get(0).substring(0, 1).equals(aHand.get(2).substring(0, 1))
-							|| aHand.get(1).substring(0, 1).equals(aHand.get(2).substring(0, 1))) {
+					if (aHand.get(0).getNumber().equals(aHand.get(1).getNumber()) || aHand.get(0).getNumber().equals(aHand.get(2).getNumber())
+							|| aHand.get(1).getNumber().equals(aHand.get(2).getNumber())) {
 						return true;
 					}
 				}
@@ -109,16 +104,16 @@ public class Score {
 		return false;
 	}
 
-	private static boolean isThreeOfKind(String[] myHand) {
+	private static boolean isThreeOfKind(Card[] myHand) {
 		int next = 0;
 		for (int i = 0; i < 3; i++) {
 			next++;
 			for (int j = next; j < 4; j++) {
-				if (myHand[i].substring(0, 1).equals(myHand[j].substring(0, 1))) {
+				if (myHand[i].getNumber().equals(myHand[j].getNumber())) {
 					if (j < 4) {
 						int g = j + 1;
 						while (g <= 4) {
-							if (myHand[j].substring(0, 1).equals(myHand[g].substring(0, 1))) {
+							if (myHand[j].getNumber().equals(myHand[g].getNumber())) {
 								return true;
 							}
 							g++;
@@ -130,20 +125,20 @@ public class Score {
 		return false;
 	}
 
-	private static boolean isFourOfKind(String[] myHand) {
+	private static boolean isFourOfKind(Card[] myHand) {
 		int next = 0;
 		for (int i = 0; i < 4; i++) {
 			next++;
 			for (int j = next; j < 5; j++) {
-				if (myHand[i].substring(0, 1).equals(myHand[j].substring(0, 1))) {
+				if (myHand[i].getNumber().equals(myHand[j].getNumber())) {
 					if (j < 4) {
 						int g = j + 1;
 						while (g <= 4) {
-							if (myHand[j].substring(0, 1).equals(myHand[g].substring(0, 1))) {
+							if (myHand[j].getNumber().equals(myHand[g].getNumber())) {
 								if (g < 4) {
 									int k = g + 1;
 									while (k <= 4) {
-										if (myHand[g].substring(0, 1).equals(myHand[k].substring(0, 1))) {
+										if (myHand[g].getNumber().equals(myHand[k].getNumber())) {
 											return true;
 										}
 										k++;
@@ -159,30 +154,30 @@ public class Score {
 		return false;
 	}
 
-	private static boolean isFullHouse(String[] myHand) {
+	private static boolean isFullHouse(Card[] myHand) {
 		String card1 = "j", card2 = "j";
 		for (int i = 0; i < 4; i++) {
 			for (int g = 1; g < 5; g++) {
-				if (!myHand[i].substring(0, 1).equals(myHand[g].substring(0, 1))) {
-					card1 = myHand[i].substring(0, 1);
-					card2 = myHand[g].substring(0, 1);
+				if (!myHand[i].getNumber().equals(myHand[g].getNumber())) {
+					card1 = myHand[i].getNumber();
+					card2 = myHand[g].getNumber();
 				}
 			}
 		}
 		for (int k = 0; k < 4; k++) {
-			if (!myHand[k].substring(0, 1).equals(card1) && !myHand[k].substring(0, 1).equals(card2)) {
+			if (!myHand[k].getNumber().equals(card1) && !myHand[k].getNumber().equals(card2)) {
 				return false;
 			}
 		}
 		return true;
 	}
 
-	public static int getScore(String[] aHand) {
+	public static int getScore(Card[] aHand) {
 
 		if (isFlush(aHand) && isStraight(aHand)) {
 			String[] subHand = new String[5];
 			for (int i = 0; i <= 4; i++) {
-				subHand[i] = aHand[i].substring(0, 1);
+				subHand[i] = aHand[i].getNumber();
 			}
 			List<String> handList = new ArrayList<String>(Arrays.asList(subHand));
 			if (handList.contains("K") && handList.contains("A")) {

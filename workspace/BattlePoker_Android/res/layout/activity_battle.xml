@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="bottom"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/battle_background" >
 
     <ImageButton
         android:id="@+id/card1ImageButton"
@@ -51,21 +52,90 @@
         android:onClick="onClick"
         android:src="@android:drawable/btn_star" />
 
-    <ImageView
-        android:id="@+id/battle_mario_image"
+    <Button
+        android:id="@+id/DealButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/card1ImageButton"
-        android:layout_alignParentLeft="true"
-        android:src="@drawable/mario" />
+        android:layout_alignLeft="@+id/battle_bowser"
+        android:layout_alignRight="@+id/ImageButton01"
+        android:layout_alignTop="@+id/card5ImageButton"
+        android:onClick="Deal"
+        android:text="Deal" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@android:drawable/btn_default" />
+
+    <ImageButton
+        android:id="@+id/ImageButton01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/imageButton1"
+        android:src="@android:drawable/btn_default" />
+
+    <ImageButton
+        android:id="@+id/ImageButton02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/ImageButton01"
+        android:src="@android:drawable/btn_default" />
 
     <ImageView
         android:id="@+id/battle_bowser"
         android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_above="@+id/DealButton"
+        android:layout_alignLeft="@+id/ImageButton02"
+        android:layout_below="@+id/imageButton1"
+        android:src="@drawable/dwarf_dude_man" />
+
+    <ImageButton
+        android:id="@+id/ImageButton03"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/card5ImageButton"
-        android:layout_marginLeft="18dp"
+        android:layout_above="@+id/battle_bowser"
+        android:layout_toLeftOf="@+id/ImageButton02"
+        android:src="@android:drawable/btn_default" />
+
+    <TextView
+        android:id="@+id/EnemyHealth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/card5ImageButton"
-        android:src="@drawable/bowser" />
+        android:text="1000" />
+
+    <ImageButton
+        android:id="@+id/ImageButton04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/ImageButton03"
+        android:src="@android:drawable/btn_default" />
+
+    <TextView
+        android:id="@+id/PlayerHealth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/EnemyHealth"
+        android:layout_alignBottom="@+id/EnemyHealth"
+        android:layout_alignRight="@+id/card2ImageButton"
+        android:text="1000" />
+
+
+    <ImageView
+        android:id="@+id/battle_mario_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/battle_bowser"
+        android:layout_toLeftOf="@+id/PlayerHealth"
+        android:maxHeight="200dp"
+        android:src="@drawable/pixely_thing" />
 
 </RelativeLayout>

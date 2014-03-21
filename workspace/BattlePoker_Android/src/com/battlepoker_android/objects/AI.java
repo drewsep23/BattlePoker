@@ -6,19 +6,19 @@ import java.util.List;
 
 public class AI {
 
-	public static String fourSuit(String[] nHand) {
+	public static String fourSuit(Card[] nHand) {
 		int dnum = 0, cnum = 0, snum = 0, hnum = 0;
 		for (int i = 0; i <= 4; i++) {
-			if (nHand[i].substring(1).equals("d")) {
+			if (nHand[i].getSuit().equals("d")) {
 				dnum++;
 			}
-			if (nHand[i].substring(1).equals("s")) {
+			if (nHand[i].getSuit().equals("s")) {
 				snum++;
 			}
-			if (nHand[i].substring(1).equals("h")) {
+			if (nHand[i].getSuit().equals("h")) {
 				hnum++;
 			}
-			if (nHand[i].substring(1).equals("c")) {
+			if (nHand[i].getSuit().equals("c")) {
 				cnum++;
 			}
 		}
@@ -37,7 +37,7 @@ public class AI {
 		return "no";
 	}
 
-	public static String[] makeDecision(String[] comHand) {
+	public static Card[] makeDecision(Card[] comHand) {
 	//	String[] aHand = new String[5];
 		int aScore;
 		aScore = Score.getScore(comHand);
@@ -54,11 +54,11 @@ public class AI {
 			for (int i = 0; i < 4; i++) {
 				next++;
 				for (int j = next; j < 5; j++) {
-					if (comHand[i].substring(0, 1).equals(comHand[j].substring(0, 1))) {
-						pair = comHand[i].substring(0, 1);
+					if (comHand[i].getNumber().equals(comHand[j].getNumber())) {
+						pair = comHand[i].getNumber();
 						for (int g = 0; g <= 4; g++) {
-							if (!comHand[g].substring(0, 1).equals(pair)) {
-								comHand[g] = "draw";
+							if (!comHand[g].getNumber().equals(pair)) {
+								comHand[g].setHeld(false);
 							}
 						}
 						return comHand;
@@ -74,13 +74,13 @@ public class AI {
 			String first = null, second = null, third = null;
 			String aChange = null;
 			int count1 = 0, count2 = 0, count3 = 0;
-			first = comHand[0].substring(0, 1);
+			first = comHand[0].getNumber();
 			for (int g = 1; g <= 4; g++) {
-				if (!first.equals(comHand[g].substring(0, 1))) {
-					second = comHand[g].substring(0, 1);
+				if (!first.equals(comHand[g].getNumber())) {
+					second = comHand[g].getNumber();
 					for (int i = g + 1; i <= 4; i++) {
-						if (!first.equals(comHand[i].substring(01)) && !second.equals(comHand[i].substring(0, 1))) {
-							third = comHand[i].substring(0, 1);
+						if (!first.equals(comHand[i].getNumber()) && !second.equals(comHand[i].getNumber())) {
+							third = comHand[i].getNumber();
 							i = 5;
 							g = 5;
 						}
@@ -89,13 +89,13 @@ public class AI {
 			}
 
 			for (int k = 0; k <= 4; k++) {
-				if (first.equals(comHand[k].substring(0, 1))) {
+				if (first.equals(comHand[k].getNumber())) {
 					count1++;
 				}
-				if (second.equals(comHand[k].substring(0, 1))) {
+				if (second.equals(comHand[k].getNumber())) {
 					count2++;
 				}
-				if (third.equals(comHand[k].substring(0, 1))) {
+				if (third.equals(comHand[k].getNumber())) {
 					count3++;
 				}
 			}
@@ -109,8 +109,8 @@ public class AI {
 				aChange = third;
 			}
 			for (int h = 0; h <= 4; h++) {
-				if (aChange.equals(comHand[h].substring(0, 1))) {
-					comHand[h] = "draw";
+				if (aChange.equals(comHand[h].getNumber())) {
+					comHand[h].setHeld(false);
 					h = 5;
 				}
 			}
@@ -124,32 +124,32 @@ public class AI {
 		if (!Suits.equals("no")) {
 			if (Suits.equals("d")) {
 				for (int i = 0; i <= 4; i++) {
-					if (!comHand[i].substring(1).equals("d")) {
-						comHand[i] = "draw";
+					if (!comHand[i].getSuit().equals("d")) {
+						comHand[i].setHeld(false);
 						return comHand;
 					}
 				}
 			}
 			if (Suits.equals("s")) {
 				for (int i = 0; i <= 4; i++) {
-					if (!comHand[i].substring(1).equals("s")) {
-						comHand[i] = "draw";
+					if (!comHand[i].getSuit().equals("s")) {
+						comHand[i].setHeld(false);
 						return comHand;
 					}
 				}
 			}
 			if (Suits.equals("c")) {
 				for (int i = 0; i <= 4; i++) {
-					if (!comHand[i].substring(1).equals("c")) {
-						comHand[i] = "draw";
+					if (!comHand[i].getSuit().equals("c")) {
+						comHand[i].setHeld(false);
 						return comHand;
 					}
 				}
 			}
 			if (Suits.equals("h")) {
 				for (int i = 0; i <= 4; i++) {
-					if (!comHand[i].substring(1).equals("h")) {
-						comHand[i] = "draw";
+					if (!comHand[i].getSuit().equals("h")) {
+						comHand[i].setHeld(false);
 						return comHand;
 					}
 				}
@@ -165,29 +165,29 @@ public class AI {
 		for (int i = 0; i <= 4; i++) {
 			boolean used = false;
 
-			if (comHand[i].substring(0, 1).equals("J")) {
+			if (comHand[i].getNumber().equals("J")) {
 				straightHand[i] = 11;
 				used = true;
 			}
-			if (comHand[i].substring(0, 1).equals("Q")) {
+			if (comHand[i].getNumber().equals("Q")) {
 				straightHand[i] = 12;
 				used = true;
 			}
-			if (comHand[i].substring(0, 1).equals("K")) {
+			if (comHand[i].getNumber().equals("K")) {
 				straightHand[i] = 13;
 				used = true;
 			}
-			if (comHand[i].substring(0, 1).equals("A")) {
+			if (comHand[i].getNumber().equals("A")) {
 				straightHand[i] = 14;
 				used = true;
 			}
-			if (comHand[i].substring(0, 1).equals("1")) {
+			if (comHand[i].getNumber().equals("1")) {
 				straightHand[i] = 10;
 				used = true;
 			}
 
 			if (!used) {
-				straightHand[i] = Integer.parseInt(comHand[i].substring(0, 1));
+				straightHand[i] = Integer.parseInt(comHand[i].getNumber());
 			}
 		}
 		List<Integer> listHand = new ArrayList<Integer>();
@@ -225,8 +225,8 @@ public class AI {
 		aChange = Integer.toString(change);
 		if (change != 69) {
 			for (int j = 0; j <= 4; j++) {
-				if (comHand[j].substring(0, 1) == aChange) {
-					comHand[j] = "draw";
+				if (comHand[j].getNumber() == aChange) {
+					comHand[j].setHeld(false);
 					return comHand;
 				}
 			}
@@ -235,8 +235,8 @@ public class AI {
 
 		//Draw a whole new hand
 		for (int i = 0; i <= 4; i++) {
-			if (!comHand[i].substring(0, 1).equals("J") && !comHand[i].substring(0, 1).equals("Q") && !comHand[i].substring(0, 1).equals("K") && !comHand[i].substring(0, 1).equals("A"))
-				comHand[i] = "draw";
+			if (!comHand[i].getNumber().equals("J") && !comHand[i].getNumber().equals("Q") && !comHand[i].getNumber().equals("K") && !comHand[i].getNumber().equals("A"))
+				comHand[i].setHeld(false);
 		}
 		return comHand;
 	}

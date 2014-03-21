@@ -188,6 +188,7 @@ public class MapActivity extends Activity implements OnClickListener {
 		}
 	}
 
+	@Override
 	public void onClick(View view) {
 
 		for (int i = 0; i < levelList.size(); i++) {

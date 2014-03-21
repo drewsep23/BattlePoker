@@ -10,7 +10,11 @@ public class Enemy implements Serializable {
 	private String name;
 	private int health;
 	private int mana;
-	private Hand hand;
+	public Card [] hand;
+	
+	public Enemy(){
+		hand = new Card [5];
+	}
 
 	public String getName() {
 		return name;
@@ -36,11 +40,5 @@ public class Enemy implements Serializable {
 		this.mana = mana;
 	}
 
-	public Hand getHand() {
-		return hand;
-	}
 
-	public void setHand(Hand hand) {
-		this.hand = hand;
-	}
 }

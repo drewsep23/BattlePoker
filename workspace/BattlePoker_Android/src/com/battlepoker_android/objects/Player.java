@@ -7,10 +7,10 @@ public class Player {
 	private int mana;
 	private int x;
 	private int y;
-	private Hand hand;
+	public Card [] hand;
 
 	public Player(int health, int mana) {
-		hand = new Hand();
+		hand = new Card [5];
 		x = 0;
 		y = 0;
 		this.health = health;
@@ -57,12 +57,6 @@ public class Player {
 		this.y = yposition;
 	}
 
-	public Hand getHand() {
-		return hand;
-	}
 
-	public void setHand(Hand hand) {
-		this.hand = hand;
-	}
 
 }
