@@ -52,11 +52,12 @@ public final class R {
     }
     public static final class id {
         public static final int DealButton=0x7f0a0006;
+        public static final int EnemyCard1Image=0x7f0a000d;
+        public static final int EnemyCard2Image=0x7f0a000b;
+        public static final int EnemyCard3Image=0x7f0a000a;
+        public static final int EnemyCard4Image=0x7f0a0008;
+        public static final int EnemyCard5Image=0x7f0a0009;
         public static final int EnemyHealth=0x7f0a000c;
-        public static final int ImageButton01=0x7f0a0008;
-        public static final int ImageButton02=0x7f0a000a;
-        public static final int ImageButton03=0x7f0a000b;
-        public static final int ImageButton04=0x7f0a000d;
         public static final int PlayerHealth=0x7f0a000e;
         public static final int action_settings=0x7f0a0014;
         public static final int battleRelativeLayout=0x7f0a0000;
@@ -67,7 +68,6 @@ public final class R {
         public static final int card3ImageButton=0x7f0a0003;
         public static final int card4ImageButton=0x7f0a0004;
         public static final int card5ImageButton=0x7f0a0005;
-        public static final int imageButton1=0x7f0a0009;
         public static final int loadGameButton=0x7f0a0011;
         public static final int mapRelativeLayout=0x7f0a0013;
         public static final int newGameButton=0x7f0a0010;

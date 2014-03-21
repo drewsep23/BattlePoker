@@ -20,11 +20,15 @@ import com.example.battlepoker_android.R;
 
 public class BattleActivity extends Activity {
 	//layouts
-	private ImageButton card1ImageButton;
-	private ImageButton card2ImageButton;
-	private ImageButton card3ImageButton;
-	private ImageButton card4ImageButton;
-	private ImageButton card5ImageButton;
+	
+	private ImageButton [] cardImageButton = new ImageButton [5];
+	
+	private ImageButton enemyCard1ImageButton;
+	private ImageButton enemyCard2ImageButton;
+	private ImageButton enemyCard3ImageButton;
+	private ImageButton enemyCard4ImageButton;
+	private ImageButton enemyCard5ImageButton;
+
 	
 	private TextView EnemyHealth;
 	private Button DealButton;
@@ -41,63 +45,20 @@ public class BattleActivity extends Activity {
 	private Player player1 = new Player(100,100);
 	private Deck deck = new Deck();
 	//private boolean battleSuccessful = false;
-	private Enemy enemy;
+	private Enemy enemy = new Enemy();
 
+	
+	
 	//DealButton functionality
 	public void Deal (View view){
 		if(dealtHand == false){
-			player1.hand [0] = deck.drawCard();
-			player1.hand[1] = deck.drawCard();
-			player1.hand [2] = deck.drawCard();
-			player1.hand[3] = deck.drawCard();
-			player1.hand [4] = deck.drawCard();
-		}
-		Bitmap bmCards = BitmapFactory.decodeResource(getResources(), R.drawable.deck_of_cards);
-		bmCards = Bitmap.createScaledBitmap(bmCards, 1400, 580, false);
-		
-		if(card1IsHeld == false){
-			if(dealtHand == true){
-				player1.hand[0] = deck.drawCard();
-			}
-		card1ImageButton.setImageBitmap(Bitmap.createBitmap(bmCards, player1.hand[0].getX(), player1.hand[0].getY(), player1.hand[0].getWidth(), player1.hand[0].getHeight()));
-		card1ImageButton.setScaleType(ImageView.ScaleType.FIT_CENTER);
-		card1ImageButton.setPadding(0, 0, 0, 0);
+			deck = new Deck();
+			player1.hand = newHand();
+			enemy.hand = newHand();
 		}
 		
-		if(card2IsHeld == false){
-			if(dealtHand == true){
-				player1.hand[1] = deck.drawCard();
-			}
-		card2ImageButton.setImageBitmap(Bitmap.createBitmap(bmCards, player1.hand[1].getX(), player1.hand[1].getY(), player1.hand[1].getWidth(), player1.hand[1].getHeight()));
-		card2ImageButton.setScaleType(ImageView.ScaleType.FIT_CENTER);
-		card2ImageButton.setPadding(0, 0, 0, 0);
-		}
+		setCards(cardImageButton,player1);
 		
-		if(card3IsHeld == false){
-			if(dealtHand == true){
-				player1.hand[2] = deck.drawCard();
-			}
-		card3ImageButton.setImageBitmap(Bitmap.createBitmap(bmCards, player1.hand[2].getX(), player1.hand[2].getY(), player1.hand[2].getWidth(), player1.hand[2].getHeight()));
-		card3ImageButton.setScaleType(ImageView.ScaleType.FIT_CENTER);
-		card3ImageButton.setPadding(0, 0, 0, 0);
-		}
-		
-		if(card4IsHeld == false){
-			if(dealtHand == true){
-				player1.hand[3] = deck.drawCard();
-			}
-		card4ImageButton.setImageBitmap(Bitmap.createBitmap(bmCards, player1.hand[3].getX(), player1.hand[3].getY(), player1.hand[3].getWidth(), player1.hand[3].getHeight()));
-		card4ImageButton.setScaleType(ImageView.ScaleType.FIT_CENTER);
-		card4ImageButton.setPadding(0, 0, 0, 0);
-		}
-		if(card5IsHeld == false){
-			if(dealtHand == true){
-				player1.hand[4] = deck.drawCard();
-			}
-		card5ImageButton.setImageBitmap(Bitmap.createBitmap(bmCards, player1.hand[4].getX(), player1.hand[4].getY(), player1.hand[4].getWidth(), player1.hand[4].getHeight()));
-		card5ImageButton.setScaleType(ImageView.ScaleType.FIT_CENTER);
-		card5ImageButton.setPadding(0, 0, 0, 0);
-		}
 		if(dealtHand==false){
 			dealtHand = true;
 			DealButton.setText("Draw");
@@ -116,28 +77,55 @@ public class BattleActivity extends Activity {
 			
 			dealtHand = false;
 			if(card1IsHeld == true){
-			onClick(card1ImageButton);
+			onClick(cardImageButton[0]);
 			card1IsHeld = false;
 			}
 			if(card2IsHeld == true){			
-			onClick(card2ImageButton);
+			onClick(cardImageButton[1]);
 			card2IsHeld = false;
 			}
 			if(card3IsHeld == true){
-			onClick(card3ImageButton);
+			onClick(cardImageButton[2]);
 			card3IsHeld = false;
 			}
 			if(card4IsHeld == true){
-			onClick(card4ImageButton);
+			onClick(cardImageButton[3]);
 			card4IsHeld = false;
 			}
 			if(card5IsHeld == true){
-			onClick(card5ImageButton);
+			onClick(cardImageButton[4]);
 			card5IsHeld = false;
 			}
 					
 			dealtHand = false;
 			DealButton.setText("Deal");
+			
+		}
+	}
+	
+	public Card[] newHand(){
+		Card[] newCards = new Card [5];
+		for(int i =0; i<=4;i++){
+			newCards[i] = deck.drawCard();
+		}
+		return newCards;
+	}
+	
+	public void setCards(ImageButton [] imageButton, Player aPlayer){
+		
+		Bitmap bmCards = BitmapFactory.decodeResource(getResources(), R.drawable.deck_of_cards);
+		bmCards = Bitmap.createScaledBitmap(bmCards, 1400, 580, false);
+		
+		for(int i =0; i<=4;i++){
+			if(!player1.hand[0].isHeld()){
+				if(dealtHand == true){
+					player1.hand[0] = deck.drawCard();
+				}
+				imageButton[i].setImageBitmap(Bitmap.createBitmap(bmCards, aPlayer.hand[i].getX(), aPlayer.hand[i].getY(), aPlayer.hand[i].getWidth(), aPlayer.hand[i].getHeight()));
+				imageButton[i].setScaleType(ImageView.ScaleType.FIT_CENTER);
+				imageButton[i].setPadding(0, 0, 0, 0);
+	
+			}
 		}
 	}
 	
@@ -150,11 +138,19 @@ public class BattleActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);;
 		setContentView(R.layout.activity_battle);
 		enemy = (Enemy) getIntent().getSerializableExtra("com.battlepoker_android.objects.Enemy");
-		card1ImageButton = (ImageButton) findViewById(R.id.card1ImageButton);
-		card2ImageButton = (ImageButton) findViewById(R.id.card2ImageButton);
-		card3ImageButton = (ImageButton) findViewById(R.id.card3ImageButton);
-		card4ImageButton = (ImageButton) findViewById(R.id.card4ImageButton);
-		card5ImageButton = (ImageButton) findViewById(R.id.card5ImageButton);
+		cardImageButton[0] = (ImageButton) findViewById(R.id.card1ImageButton);
+		cardImageButton[1] = (ImageButton) findViewById(R.id.card2ImageButton);
+		cardImageButton[2] = (ImageButton) findViewById(R.id.card3ImageButton);
+		cardImageButton[3] = (ImageButton) findViewById(R.id.card4ImageButton);
+		cardImageButton[4] = (ImageButton) findViewById(R.id.card5ImageButton);
+		
+		enemyCard1ImageButton = (ImageButton) findViewById(R.id.EnemyCard1Image);
+		enemyCard2ImageButton = (ImageButton) findViewById(R.id.EnemyCard2Image);
+		enemyCard3ImageButton = (ImageButton) findViewById(R.id.EnemyCard3Image);
+		enemyCard4ImageButton = (ImageButton) findViewById(R.id.EnemyCard4Image);
+		enemyCard5ImageButton = (ImageButton) findViewById(R.id.EnemyCard5Image);
+
+		
 		EnemyHealth = (TextView) findViewById(R.id.EnemyHealth);
 		DealButton = (Button) findViewById(R.id.DealButton);
 		
@@ -172,48 +168,118 @@ public class BattleActivity extends Activity {
 		case R.id.card1ImageButton:
 			if (card1IsHeld) {
 				card1IsHeld = false;
-				card1ImageButton.setY(card1ImageButton.getY() + 50);//change to non-hardcoded value.
+				player1.hand[0].setHeld(false);
+				cardImageButton[0].setY(cardImageButton[0].getY() + 50);//change to non-hardcoded value.
 			} else {
 				card1IsHeld = true;
-				card1ImageButton.setY(card1ImageButton.getY() - 50);
+				player1.hand[0].setHeld(true);
+				cardImageButton[0].setY(cardImageButton[0].getY() - 50);
 			}
 			break;
 		case R.id.card2ImageButton:
 			if (card2IsHeld) {
 				card2IsHeld = false;
-				card2ImageButton.setY(card2ImageButton.getY() + 50);
+				player1.hand[1].setHeld(false);
+				cardImageButton[1].setY(cardImageButton[1].getY() + 50);
 			} else {
 				card2IsHeld = true;
-				card2ImageButton.setY(card2ImageButton.getY() - 50);
+				player1.hand[1].setHeld(true);
+				cardImageButton[1].setY(cardImageButton[1].getY() - 50);
 			}
 			break;
 		case R.id.card3ImageButton:
 			if (card3IsHeld) {
 				card3IsHeld = false;
-				card3ImageButton.setY(card3ImageButton.getY() + 50);
+				player1.hand[2].setHeld(false);
+				cardImageButton[2].setY(cardImageButton[2].getY() + 50);
 			} else {
 				card3IsHeld = true;
-				card3ImageButton.setY(card3ImageButton.getY() - 50);
+				player1.hand[2].setHeld(true);
+				cardImageButton[2].setY(cardImageButton[2].getY() - 50);
 			}
 			break;
 		case R.id.card4ImageButton:
 			if (card4IsHeld) {
 				card4IsHeld = false;
-				card4ImageButton.setY(card4ImageButton.getY() + 50);
+				player1.hand[3].setHeld(false);
+				cardImageButton[3].setY(cardImageButton[3].getY() + 50);
 			} else {
 				card4IsHeld = true;
-				card4ImageButton.setY(card4ImageButton.getY() - 50);
+				player1.hand[3].setHeld(true);
+				cardImageButton[3].setY(cardImageButton[3].getY() - 50);
 			}
 			break;
 		case R.id.card5ImageButton:
 			if (card5IsHeld) {
 				card5IsHeld = false;
-				card5ImageButton.setY(card5ImageButton.getY() + 50);
+				player1.hand[4].setHeld(false);
+				cardImageButton[4].setY(cardImageButton[4].getY() + 50);
 			} else {
 				card5IsHeld = true;
-				card5ImageButton.setY(card5ImageButton.getY() - 50);
+				player1.hand[4].setHeld(true);
+				cardImageButton[4].setY(cardImageButton[4].getY() - 50);
 			}
 			break;
+			
+			//Enemy Card Set
+			
+		case R.id.EnemyCard1Image:
+			if (enemy.hand[0].isHeld()) {
+				enemy.hand[0].setHeld(false);
+				enemyCard1ImageButton.setY(enemyCard1ImageButton.getY() - 25);
+
+			} else {
+				player1.hand[0].setHeld(true);
+				enemyCard1ImageButton.setY(enemyCard1ImageButton.getY() + 25);
+
+			}
+			break;
+		case R.id.EnemyCard2Image:
+			if (enemy.hand[1].isHeld()) {
+				enemy.hand[1].setHeld(false);
+				enemyCard2ImageButton.setY(enemyCard2ImageButton.getY() - 25);
+
+			} else {
+				enemy.hand[1].setHeld(true);
+				enemyCard2ImageButton.setY(enemyCard2ImageButton.getY() + 25);
+
+			}
+			break;
+		case R.id.EnemyCard3Image:
+			if (enemy.hand[2].isHeld()) {
+				enemy.hand[2].setHeld(false);
+				enemyCard3ImageButton.setY(enemyCard3ImageButton.getY() - 25);
+
+			} else {
+				enemy.hand[2].setHeld(true);
+				enemyCard3ImageButton.setY(enemyCard3ImageButton.getY() + 25);
+
+			}
+			break;
+		case R.id.EnemyCard4Image:
+			if (enemy.hand[3].isHeld()) {
+				enemy.hand[3].setHeld(false);
+				enemyCard4ImageButton.setY(enemyCard4ImageButton.getY() - 25);
+
+			} else {
+				enemy.hand[3].setHeld(true);
+				enemyCard4ImageButton.setY(enemyCard4ImageButton.getY() + 25);
+
+			}
+			break;
+		case R.id.EnemyCard5Image:
+			if (enemy.hand[4].isHeld()) {
+				enemy.hand[4].setHeld(false);
+				enemyCard5ImageButton.setY(enemyCard5ImageButton.getY() - 25);
+
+			} else {
+				enemy.hand[4].setHeld(true);
+				enemyCard5ImageButton.setY(enemyCard5ImageButton.getY() + 25);
+
+			}
+			break;
+			
+			
 		//for testing only----------
 //		case R.id.button1:			
 //			//MapActivity.battleSuccessful = true;

@@ -57,13 +57,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/battle_bowser"
-        android:layout_alignRight="@+id/ImageButton01"
+        android:layout_alignRight="@+id/EnemyCard4Image"
         android:layout_alignTop="@+id/card5ImageButton"
         android:onClick="Deal"
         android:text="Deal" />
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/EnemyCard5Image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -71,19 +71,19 @@
         android:src="@android:drawable/btn_default" />
 
     <ImageButton
-        android:id="@+id/ImageButton01"
+        android:id="@+id/EnemyCard4Image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/imageButton1"
+        android:layout_toLeftOf="@+id/EnemyCard5Image"
         android:src="@android:drawable/btn_default" />
 
     <ImageButton
-        android:id="@+id/ImageButton02"
+        android:id="@+id/EnemyCard3Image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/ImageButton01"
+        android:layout_toLeftOf="@+id/EnemyCard4Image"
         android:src="@android:drawable/btn_default" />
 
     <ImageView
@@ -91,16 +91,16 @@
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:layout_above="@+id/DealButton"
-        android:layout_alignLeft="@+id/ImageButton02"
-        android:layout_below="@+id/imageButton1"
+        android:layout_alignLeft="@+id/EnemyCard3Image"
+        android:layout_below="@+id/EnemyCard5Image"
         android:src="@drawable/dwarf_dude_man" />
 
     <ImageButton
-        android:id="@+id/ImageButton03"
+        android:id="@+id/EnemyCard2Image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/battle_bowser"
-        android:layout_toLeftOf="@+id/ImageButton02"
+        android:layout_toLeftOf="@+id/EnemyCard3Image"
         android:src="@android:drawable/btn_default" />
 
     <TextView
@@ -112,11 +112,11 @@
         android:text="1000" />
 
     <ImageButton
-        android:id="@+id/ImageButton04"
+        android:id="@+id/EnemyCard1Image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/ImageButton03"
+        android:layout_toLeftOf="@+id/EnemyCard2Image"
         android:src="@android:drawable/btn_default" />
 
     <TextView
