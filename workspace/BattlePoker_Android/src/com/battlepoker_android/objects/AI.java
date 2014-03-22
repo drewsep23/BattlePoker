@@ -41,6 +41,9 @@ public class AI {
 	//	String[] aHand = new String[5];
 		int aScore;
 		aScore = Score.getScore(comHand);
+		for(int i = 0 ; i<=4; i++){
+		comHand[i].setHeld(true);
+		}
 
 		//If player has a good hand with no need to draw new cards then return hand
 		if (aScore >= 40) {

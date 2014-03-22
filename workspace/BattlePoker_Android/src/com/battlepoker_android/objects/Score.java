@@ -215,5 +215,39 @@ public class Score {
 		return 0;
 
 	}
+	public static String getHandValue(int score){
+		if(score == 10){
+			return "Pair";
+		}
+		if(score == 15){
+			return "High Pair";
+		}
+		if(score == 20){
+			return "Two Pair";
+		}
+		if(score == 30){
+			return "Three of a Kind";
+		}
+		if(score == 40){
+			return "Straight";
+		}
+		if(score == 60){
+			return "Flush";
+		}
+		if(score == 90){
+			return "Full House";
+		}
+		if(score == 250){
+			return "Four of a Kind";
+		}
+		if(score == 500){
+			return "Straight Flush";
+		}
+		if(score == 2500){
+			return "Royal Flush";
+		}
+		return "Nothing";
+		
+	}
 
 }
