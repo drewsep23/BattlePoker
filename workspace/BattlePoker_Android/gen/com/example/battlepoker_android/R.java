@@ -45,10 +45,12 @@ public final class R {
         public static final int bowser=0x7f020007;
         public static final int deck_of_cards=0x7f020008;
         public static final int dwarf_dude_man=0x7f020009;
-        public static final int ic_launcher=0x7f02000a;
-        public static final int mario=0x7f02000b;
-        public static final int pixely_thing=0x7f02000c;
-        public static final int player_1=0x7f02000d;
+        public static final int forest_map=0x7f02000a;
+        public static final int ic_launcher=0x7f02000b;
+        public static final int mario=0x7f02000c;
+        public static final int pixely_thing=0x7f02000d;
+        public static final int player_1=0x7f02000e;
+        public static final int poker_battle_mainscreen=0x7f02000f;
     }
     public static final class id {
         public static final int DealButton=0x7f0a0006;
@@ -68,10 +70,10 @@ public final class R {
         public static final int card3ImageButton=0x7f0a0003;
         public static final int card4ImageButton=0x7f0a0004;
         public static final int card5ImageButton=0x7f0a0005;
-        public static final int loadGameButton=0x7f0a0011;
+        public static final int loadGameButton=0x7f0a0012;
         public static final int mapRelativeLayout=0x7f0a0013;
-        public static final int newGameButton=0x7f0a0010;
-        public static final int optionsButton=0x7f0a0012;
+        public static final int newGameButton=0x7f0a0011;
+        public static final int optionsButton=0x7f0a0010;
     }
     public static final class layout {
         public static final int activity_battle=0x7f030000;

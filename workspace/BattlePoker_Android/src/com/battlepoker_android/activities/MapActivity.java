@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.battlepoker_android.database.DatabaseHelper;
@@ -55,6 +56,7 @@ public class MapActivity extends Activity implements OnClickListener {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.		
 		getMenuInflater().inflate(R.menu.main, menu);
+		
 		return true;
 	}
 
@@ -80,14 +82,13 @@ public class MapActivity extends Activity implements OnClickListener {
 		TypedArray mana = res.obtainTypedArray(R.array.Mana);
 		TypedArray xPosition = res.obtainTypedArray(R.array.xPosition);
 		TypedArray yPosition = res.obtainTypedArray(R.array.yPosition);
-
 		//loop through each array to create a new level object.  store the level in a list.
 		for (int i = 0; i < name.length(); i++) {
 			idCounter++;
 
 			Level level = new Level(getApplicationContext());
 			level.setImageResource(R.drawable.bad_guy_locked_1);
-
+			level.setScaleType(ImageView.ScaleType.FIT_CENTER);
 			level.getEnemy().setName(name.getString(i));
 			level.getEnemy().setHealth(health.getInt(i, -1));
 			level.getEnemy().setMana(mana.getInt(i, -1));
@@ -105,6 +106,7 @@ public class MapActivity extends Activity implements OnClickListener {
 			layoutParams.leftMargin = (level.getXPosition() * buttonSpacing);
 			layoutParams.topMargin = (level.getYPosition() * buttonSpacing);
 			layout.addView(level, layoutParams);
+			layout.setBackgroundResource(R.drawable.forest_map);
 			level.setClickable(false);
 			levelList.add(level);
 		}
