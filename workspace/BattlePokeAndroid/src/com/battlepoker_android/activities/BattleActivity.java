@@ -10,11 +10,11 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 
 import com.battlepoker_android.objects.*;
 import com.example.battlepoker_android.R;
@@ -27,9 +27,6 @@ public class BattleActivity extends Activity {
 	
 	private ImageView enemyImageView;
 	private ImageView playerImageView;
-	
-	private ProgressBar playerHealthBar;
-	private ProgressBar enemyHealthBar;
 	
 	private TextView EnemyHealth;
 	private TextView PlayerHealth;
@@ -121,8 +118,6 @@ public class BattleActivity extends Activity {
 			
 			EnemyHealth.setText(eHealth);
 			PlayerHealth.setText(pHealth);
-			playerHealthBar.setProgress(Integer.parseInt(pHealth));
-			enemyHealthBar.setProgress(Integer.parseInt(eHealth));
 			
 			
 			dealtHand = false;
@@ -211,20 +206,13 @@ public class BattleActivity extends Activity {
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);;
 		setContentView(R.layout.activity_battle);
 		enemy = (Enemy) getIntent().getSerializableExtra("com.battlepoker_android.objects.Enemy");
 		enemy1 = new Player(enemy.getHealth(),enemy.getMana());
 		
 		enemyImageView = (ImageView) findViewById(R.id.battle_bowser);
 		playerImageView = (ImageView) findViewById(R.id.battle_mario_image);
-		
-		playerHealthBar = (ProgressBar)findViewById(R.id.playerProgressBar);
-		playerHealthBar.setMax(500);
-		playerHealthBar.setProgress(500);
-		enemyHealthBar = (ProgressBar)findViewById(R.id.enemyProgressBar);
-		enemyHealthBar.setMax(500);
-		enemyHealthBar.setProgress(500);
 		
 		cardImageButton[0] = (ImageButton) findViewById(R.id.card1ImageButton);
 		cardImageButton[1] = (ImageButton) findViewById(R.id.card2ImageButton);
@@ -241,8 +229,6 @@ public class BattleActivity extends Activity {
 		
 		EnemyHealth = (TextView) findViewById(R.id.EnemyHealth);
 		PlayerHealth = (TextView) findViewById(R.id.PlayerHealth);
-		 
-		
 		DealButton = (Button) findViewById(R.id.DealButton);
 		
 	}

@@ -1,150 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/battleRelativeLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="bottom"
-    android:orientation="vertical"
-    android:background="@drawable/battle_background" >
 
-    <ImageButton
-        android:id="@+id/card1ImageButton"
-        android:layout_width="75dp"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:onClick="onClick"
-        android:src="@android:drawable/btn_star" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         android:id="@+id/battleRelativeLayout"
+        android:orientation="vertical"
+        android:background="@drawable/battle_background" >
+    
+		    <LinearLayout 
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal">
+		        	
+		        	<Space
+		        	    android:layout_width="325dp"
+		        	    android:layout_height="wrap_content" />
+		        
+		            <ImageButton
+				        android:id="@+id/EnemyCard5Image"
+				        android:layout_width="38dp"
+				        android:layout_height="50dp"
+				        android:layout_alignParentRight="true"
+				        android:layout_alignParentTop="true"
+				        android:src="@android:drawable/btn_default" />
+		
+				    <ImageButton
+				        android:id="@+id/EnemyCard4Image"
+				        android:layout_width="38dp"
+				        android:layout_height="50dp"
+				        android:layout_alignParentTop="true"
+				        android:layout_toLeftOf="@+id/EnemyCard5Image"
+				        android:src="@android:drawable/btn_default" />
+		
+				    <ImageButton
+				        android:id="@+id/EnemyCard3Image"
+				        android:layout_width="38dp"
+				        android:layout_height="50dp"
+				        android:layout_alignParentTop="true"
+				        android:layout_toLeftOf="@+id/EnemyCard4Image"
+				        android:src="@android:drawable/btn_default" />
+		
+		
+				    <ImageButton
+				        android:id="@+id/EnemyCard2Image"
+				        android:layout_width="38dp"
+				        android:layout_height="50dp"
+				        android:layout_above="@+id/battle_bowser"
+				        android:layout_toLeftOf="@+id/EnemyCard3Image"
+				        android:src="@android:drawable/btn_default" />
+				
+				    <ImageButton
+				        android:id="@+id/EnemyCard1Image"
+				        android:layout_width="38dp"
+				        android:layout_height="50dp"
+				        android:layout_alignParentTop="true"
+				        android:layout_toLeftOf="@+id/EnemyCard2Image"
+				        android:src="@android:drawable/btn_default" />
+		        
+		    </LinearLayout>
+		    
+		    <LinearLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal">
+				        <ImageView
+					        android:id="@+id/battle_mario_image"
+					        android:layout_width="150dp"
+					        android:layout_height="125dp"
+					        android:src="@drawable/pixely_thing" />
+		
+				        <ProgressBar
+					        android:id="@+id/playerProgressBar"
+					        android:layout_width="wrap_content"
+					        android:layout_height="wrap_content"
+					        android:layout_marginTop="100dp"
+					        style="?android:attr/progressBarStyleHorizontal"/>
 
-    <ImageButton
-        android:id="@+id/card2ImageButton"
-        android:layout_width="75dp"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/card1ImageButton"
-        android:onClick="onClick"
-        android:src="@android:drawable/btn_star" />
-
-    <ImageButton
-        android:id="@+id/card3ImageButton"
-        android:layout_width="75dp"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/card2ImageButton"
-        android:onClick="onClick"
-        android:src="@android:drawable/btn_star" />
-
-    <ImageButton
-        android:id="@+id/card4ImageButton"
-        android:layout_width="75dp"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/card3ImageButton"
-        android:onClick="onClick"
-        android:src="@android:drawable/btn_star" />
-
-    <ImageButton
-        android:id="@+id/card5ImageButton"
-        android:layout_width="75dp"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/card4ImageButton"
-        android:onClick="onClick"
-        android:src="@android:drawable/btn_star" />
-
-    <Button
-        android:id="@+id/DealButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/battle_bowser"
-        android:layout_alignRight="@+id/EnemyCard4Image"
-        android:layout_alignTop="@+id/card5ImageButton"
-        android:onClick="Deal"
-        android:text="Deal" />
-
-    <ImageButton
-        android:id="@+id/EnemyCard5Image"
-        android:layout_width="38dp"
-        android:layout_height="50dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:src="@android:drawable/btn_default" />
-
-    <ImageButton
-        android:id="@+id/EnemyCard4Image"
-        android:layout_width="38dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/EnemyCard5Image"
-        android:src="@android:drawable/btn_default" />
-
-    <ImageButton
-        android:id="@+id/EnemyCard3Image"
-        android:layout_width="38dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/EnemyCard4Image"
-        android:src="@android:drawable/btn_default" />
-
-    <ImageView
-        android:id="@+id/battle_bowser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/DealButton"
-        android:layout_alignLeft="@+id/EnemyCard3Image"
-        android:layout_below="@+id/EnemyCard5Image"
-        android:src="@drawable/dwarf_dude_man" />
-
-    <ImageButton
-        android:id="@+id/EnemyCard2Image"
-        android:layout_width="38dp"
-        android:layout_height="50dp"
-        android:layout_above="@+id/battle_bowser"
-        android:layout_toLeftOf="@+id/EnemyCard3Image"
-        android:src="@android:drawable/btn_default" />
-
-    <TextView
-        android:id="@+id/EnemyHealth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/card5ImageButton"
-        android:text="1000" />
-
-    <ImageButton
-        android:id="@+id/EnemyCard1Image"
-        android:layout_width="38dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/EnemyCard2Image"
-        android:src="@android:drawable/btn_default" />
-
-    <TextView
-        android:id="@+id/PlayerHealth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/EnemyHealth"
-        android:layout_alignBottom="@+id/EnemyHealth"
-        android:layout_alignRight="@+id/card2ImageButton"
-        android:text="1000" />
+				        <TextView
+					        android:id="@+id/PlayerHealth"
+					        android:layout_width="wrap_content"
+					        android:layout_height="wrap_content"
+					        android:layout_marginTop="100dp"
+					        android:layout_marginLeft="14dp"
+					        android:text="500" />
 
 
-    <ImageView
-        android:id="@+id/battle_mario_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/battle_bowser"
-        android:layout_toLeftOf="@+id/PlayerHealth"
-        
-        android:src="@drawable/pixely_thing" />
 
-    <ProgressBar
-        android:id="@+id/progressBar1"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/PlayerHealth"
-        android:layout_alignLeft="@+id/PlayerHealth"
-        android:layout_toLeftOf="@+id/card4ImageButton" />
+					    <TextView
+					        android:id="@+id/EnemyHealth"
+					        android:layout_width="wrap_content"
+					        android:layout_height="wrap_content"
+					        android:layout_marginTop="100dp"
+					        android:layout_marginLeft="60dp"
+					        android:text="500" />
+				        
+	           		    <ProgressBar
+					        android:id="@+id/enemyProgressBar"
+					        style="?android:attr/progressBarStyleHorizontal"
+					        android:layout_width="wrap_content"
+					        android:layout_height="wrap_content"
+					        android:layout_marginLeft="20dp"
+					        android:layout_marginTop="100dp" />
+				        <ImageView
+					        android:id="@+id/battle_bowser"
+					        android:layout_width="150dp"
+					        android:layout_height="125dp"
+					        android:src="@drawable/dwarf_dude_man" />
+				    
+		    </LinearLayout>
+		    
+		    <LinearLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal">
+				        
+		        
+		               <ImageButton
+					        android:id="@+id/card1ImageButton"
+					        android:layout_width="wrap_content"
+					        android:layout_height="75dp"
+					        android:onClick="onClick"
+					        android:src="@android:drawable/btn_star" />
+					
+					    <ImageButton
+					        android:id="@+id/card2ImageButton"
+					        android:layout_width="wrap_content"
+					        android:layout_height="75dp"
+					        android:onClick="onClick"
+					        android:src="@android:drawable/btn_star" />
+					
+					    <ImageButton
+					        android:id="@+id/card3ImageButton"
+					        android:layout_width="wrap_content"
+					        android:layout_height="75dp"
+					        android:onClick="onClick"
+					        android:src="@android:drawable/btn_star" />
+					
+					    <ImageButton
+					        android:id="@+id/card4ImageButton"
+					        android:layout_width="wrap_content"
+					        android:layout_height="75dp"
+					        android:onClick="onClick"
+					        android:src="@android:drawable/btn_star" />
+					
+					    <ImageButton
+					        android:id="@+id/card5ImageButton"
+					        android:layout_width="wrap_content"
+					        android:layout_height="75dp"
+					        android:onClick="onClick"
+					        android:src="@android:drawable/btn_star" />
+					
+					    <Button
+					        android:id="@+id/DealButton"
+					        android:layout_width="wrap_content"
+					        android:layout_height="wrap_content"
+					        android:onClick="Deal"
+					        android:text="Deal" />
+		        
+		        </LinearLayout>
+		    
+	</LinearLayout>
+    
 
-</RelativeLayout>
